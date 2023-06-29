@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\MakananController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\KategoriMakananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::prefix('/admin')->group(function() {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+        Route::resource('/kategori-makanan', KategoriMakananController::class);
         Route::resource('/makanan', MakananController::class);
         Route::resource('/user', UserController::class);
     });
