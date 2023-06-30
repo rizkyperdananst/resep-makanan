@@ -25,6 +25,7 @@
                                         <tr>
                                              <th>No</th>
                                              <th>Gambar</th>
+                                             <th>Nama Kategori Makanan</th>
                                              <th>Nama Makanan</th>
                                              <th>Aksi</th>
                                         </tr>
@@ -37,6 +38,7 @@
                                         <tr>
                                              <td width="5%">{{ $no++ }}</td>
                                              <td width="20%"><img src="{{ url('storage/makanans/'. $m->gambar) }}" alt="Gambar" class="img img-fluid" width="150"></td>
+                                             <td>{{ $m->kategori_makanans->kategori_makanan }}</td>
                                              <td>{{ $m->nama }}</td>
                                              <td width="17%">
                                                   <a href="{{ route('makanan.show', encrypt($m->id)) }}"

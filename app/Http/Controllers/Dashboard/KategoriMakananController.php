@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Models\KategoriMakanan;
+use App\Models\Makanan;
 use Illuminate\Http\Request;
+use App\Models\KategoriMakanan;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class KategoriMakananController extends Controller
 {
@@ -51,7 +53,14 @@ class KategoriMakananController extends Controller
 
     public function destroy($id)
     {
-        $kategori_makanan = KategoriMakanan::find(decrypt($id))->delete();
+        $kategori_makanan = KategoriMakanan::find(decrypt($id));
+        $makanan = Makanan::where('kategori_makanan_id', decrypt($id));
+        foreach ($makanan as $m) {
+            $m;
+            $gambarOld = File::delete('storage/makanans/'. $m->gambar);
+            $m->delete();
+        }
+        $kategori_makanan->delete();
 
         return redirect()->route('kategori-makanan.index')->with('status', 'Data Kategori Makanan Berhasil Di Hapus');
     }

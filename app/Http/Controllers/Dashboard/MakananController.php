@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Makanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\KategoriMakanan;
 use Illuminate\Support\Facades\File;
 
 class MakananController extends Controller
@@ -18,13 +19,16 @@ class MakananController extends Controller
 
     public function create()
     {
-        return view('dashboard.makanan.create');
+        $kategori_makanan = KategoriMakanan::orderBy('kategori_makanan', 'asc')->get();
+
+        return view('dashboard.makanan.create', compact('kategori_makanan'));
     }
 
     public function store(Request $request)
     {
         $validate = $request->validate([
             'gambar' => 'required|image|file|max:5120|mimes:jpg,jpeg,png',
+            'kategori_makanan_id' => 'required|integer',
             'nama' => 'required',
             'resep' => 'required'
         ]);
@@ -38,6 +42,7 @@ class MakananController extends Controller
         
         $makanan = Makanan::create([
             'gambar' => $namaGambar,
+            'kategori_makanan_id' => $request->kategori_makanan_id,
             'nama' => $request->nama,
             'resep' => $request->resep
         ]);
@@ -55,14 +60,16 @@ class MakananController extends Controller
     public function edit($id)
     {
         $m = Makanan::find(decrypt($id));
+        $kategori_makanan = KategoriMakanan::orderBy('kategori_makanan', 'asc')->get();
 
-        return view('dashboard.makanan.edit', compact('m'));
+        return view('dashboard.makanan.edit', compact('m', 'kategori_makanan'));
     }
 
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
             'gambar' => 'nullable|image|file|max:5120|mimes:jpg,jpeg,png',
+            'kategori_makanan_id' => 'required|integer',
             'nama' => 'required',
             'resep' => 'required'
         ]);
@@ -87,6 +94,7 @@ class MakananController extends Controller
 
         $makanan = Makanan::find(decrypt($id))->update([
             'gambar' => $namaGambar,
+            'kategori_makanan_id' => $request->kategori_makanan_id,
             'nama' => $request->nama,
             'resep' => $request->resep
         ]);

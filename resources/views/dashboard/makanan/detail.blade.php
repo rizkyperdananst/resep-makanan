@@ -17,6 +17,10 @@
                                         <td><img src="{{ url('storage/makanans/'. $m->gambar) }}" alt="Gambar" class="img img-fluid" width="200"></td>
                                    </tr>
                                    <tr>
+                                        <th>Nama Kategori Makanan</th>
+                                        <td>{{ $m->kategori_makanans->kategori_makanan }}</td>
+                                   </tr>
+                                   <tr>
                                         <th>Nama Makanan</th>
                                         <td>{{ $m->nama }}</td>
                                    </tr>

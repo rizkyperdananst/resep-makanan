@@ -24,6 +24,17 @@
                                         @enderror
                                    </div>
                                    <div class="col-md-6">
+                                        <label for="kategori_makanan_id" class="form-label">Kategori Makanan</label>
+                                        <select name="kategori_makanan_id" id="kategori_makanan_id" class="form-select @error('kategori_makanan_id') is-invalid @enderror">
+                                             <option selected hidden>Pilih Kategori Makanan</option>
+                                             @foreach ($kategori_makanan as $km)
+                                                  <option value="{{ $km->id }}">{{ $km->kategori_makanan }}</option>                                                
+                                             @endforeach
+                                        </select>
+                                   </div>
+                              </div>
+                              <div class="row mb-3">
+                                   <div class="col-md-12">
                                         <label for="nama" class="form-label">Nama Makanan</label>
                                         <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukkan Nama Makanan">
                                         @error('nama')
