@@ -9,5 +9,10 @@ class Makanan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['gambar', 'nama', 'resep'];
+    protected $fillable = ['kategori_makanan_id', 'gambar', 'nama', 'resep'];
+
+    public function kategori_makanans()
+    {
+        return $this->belongsTo(KategoriMakanan::class, 'kategori_makanan_id');
+    }
 }

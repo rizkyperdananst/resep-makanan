@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'Admin | Data Makanan')
+@section('title', 'Admin | Data Kategori Makanan')
     
 @section('content')
 <div class="container">
@@ -15,8 +15,8 @@
           <div class="col-md-12">
                <div class="card shadow">
                     <div class="card-header d-flex justify-content-between">
-                         <h4>Data Makanan</h4>
-                         <a href="{{ route('makanan.create') }}" class="btn btn-primary">Tambah</a>
+                         <h4>Data Kategori Makanan</h4>
+                         <a href="{{ route('kategori-makanan.create') }}" class="btn btn-primary">Tambah</a>
                     </div>
                     <div class="card-body">
                          <div class="table-responsive">
@@ -24,9 +24,7 @@
                                    <thead>
                                         <tr>
                                              <th>No</th>
-                                             <th>Gambar</th>
-                                             <th>Nama Kategori Makanan</th>
-                                             <th>Nama Makanan</th>
+                                             <th>Nama Kategori</th>
                                              <th>Aksi</th>
                                         </tr>
                                    </thead>
@@ -34,22 +32,16 @@
                                         @php
                                             $no= 1;
                                         @endphp
-                                        @foreach ($makanans as $m)
+                                        @foreach ($kategori_makanan as $km)
                                         <tr>
                                              <td width="5%">{{ $no++ }}</td>
-                                             <td width="20%"><img src="{{ url('storage/makanans/'. $m->gambar) }}" alt="Gambar" class="img img-fluid" width="150"></td>
-                                             <td>{{ $m->kategori_makanans->kategori_makanan }}</td>
-                                             <td>{{ $m->nama }}</td>
+                                             <td>{{ $km->kategori_makanan }}</td>
                                              <td width="17%">
-                                                  <a href="{{ route('makanan.show', encrypt($m->id)) }}"
-                                                      class="btn btn-primary">
-                                                      <i class="fa-solid fa-eye"></i>
-                                                  </a>
-                                                  <a href="{{ route('makanan.edit', encrypt($m->id)) }}"
+                                                  <a href="{{ route('kategori-makanan.edit', encrypt($km->id)) }}"
                                                       class="btn btn-warning">
                                                       <i class="fa-solid fa-pen-to-square"></i>
                                                   </a>
-                                                  <form action="{{ route('makanan.destroy', encrypt($m->id)) }}"
+                                                  <form action="{{ route('kategori-makanan.destroy', encrypt($km->id)) }}"
                                                       method="POST" class="d-inline mb-1">
                                                       @csrf
                                                       @method('delete')

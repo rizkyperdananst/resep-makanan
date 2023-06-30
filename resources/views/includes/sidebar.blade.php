@@ -26,7 +26,14 @@
         Interface
     </div>
 
-    <!-- Nav Item - Charts -->
+    <!-- Nav Item - Makanan -->
+    <li class="nav-item {{ Request::is('admin/kategori-makanan*') ? 'active' : '' }} mb-0">
+        <a class="nav-link mb-0 pb-0" href="{{ route('kategori-makanan.index') }}">
+            <i class="fa-solid fa-burger"></i>
+            <span>Kategori Makanan</span></a>
+    </li>
+
+    <!-- Nav Item - Makanan -->
     <li class="nav-item {{ Request::is('admin/makanan*') ? 'active' : '' }} mb-0">
         <a class="nav-link mb-0 pb-0" href="{{ route('makanan.index') }}">
             <i class="fa-solid fa-burger"></i>

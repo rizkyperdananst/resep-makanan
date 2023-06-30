@@ -2,7 +2,7 @@
 @section('title', 'Home | Detail Makanan')
     
 @section('content')
-<div class="row mb-3 p-5">
+<div class="row mb-3 p-5" style="width: 100%">
      <div class="col-md-12">
           <div class="card shadow">
                <div class="card-header">
