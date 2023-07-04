@@ -11,11 +11,16 @@
                     <div class="card-body">
                          <img src="{{ url('storage/makanans/'. $m->gambar) }}" class="img img-fluid" alt="">
                          <h5>{{ $m->nama }}</h5>
-                         <button class="btn btn-primary w-100">Lihat Detail</button>
+                         <button class="btn text-white w-100" style="background-color: rgb(134, 117, 18)">Lihat Detail</button>
                     </div>
                </div>
           </a>
      </div>
      @endforeach
+</div>
+<div class="row d-flex justify-content-center align-items-center mb-3">
+     <div class="col-md-12 text-center">
+          <a href="{{ route('home') }}" class="btn text-white" style="background-color: rgb(134, 117, 18)">Kembali</a>
+     </div>
 </div>
 @endsection

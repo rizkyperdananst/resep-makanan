@@ -20,10 +20,21 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ url('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(../../img/2.jpg);
+        }
+
+        /* .bg-login {
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            background-color: #ffffff;
+        } */
+    </style>
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="">
 
     <div class="container">
 
@@ -37,10 +48,10 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             {{-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> --}}
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 bg-login" style="background-color: black">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Please Login</h1>
+                                        <h1 class="h4 text-gray-900 mb-4" style="color: aliceblue">Please Login</h1>
                                     </div>
                                     @error('error')
                                         <div class="alert alert-danger mt-2 mb-2 p-2">{{ $message }}</div>

@@ -2,18 +2,21 @@
 @section('title', 'Home | Detail Makanan')
     
 @section('content')
+
 <div class="row mb-3 p-5" style="width: 100%">
-     <div class="col-md-12">
+     <div class="col-md-5">
           <div class="card shadow">
                <div class="card-header">
                     <h2>Detail Makanan</h2>
                </div>
                <div class="card-body">
                     <img src="{{ url('storage/makanans/'. $m->gambar) }}" width="100%" class="img img-fluid" alt="">
-                    <h2>{{ $m->nama }}</h2>
-                    <p>{!! $m->resep !!}</p>
                </div>
           </div>
+     </div>
+     <div class="col-md-7">
+          <h2>{{ $m->nama }}</h2>
+          <p>{!! $m->resep !!}</p>
      </div>
 </div>
 <div class="row mb-3">
@@ -24,7 +27,7 @@
                     <div class="card-body">
                          <img src="{{ url('storage/makanans/'. $m->gambar) }}" class="img img-fluid" alt="">
                          <h5>{{ $m->nama }}</h5>
-                         <button class="btn btn-primary w-100">Lihat Detail</button>
+                         <button class="btn text-white w-100"style="background-color: rgb(134, 117, 18)">Lihat Detail</button>
                     </div>
                </div>
           </a>
@@ -33,7 +36,7 @@
 </div>
 <div class="row mb-3">
      <div class="col-md-12 text-center">
-          <a href="{{ route('home') }}" class="btn btn-primary text-center">Kembali ke Home</a>
+          <a href="{{ route('home') }}" class="btn text-white text-center" style="background-color: rgb(134, 117, 18)">Kembali ke Home</a>
      </div>
 </div>
 @endsection
